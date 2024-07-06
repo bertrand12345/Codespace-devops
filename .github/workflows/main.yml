@@ -10,10 +10,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2  # L'indentation doit être correcte pour les étapes
 
-      - name: Set up Python 3.10
+      - name: Set up Python 3.10.13
         uses: actions/setup-python@v2  # Utilisation de setup-python@v2 au lieu de v1
         with:
-          python-version: 3.10
+          python-version: 3.10.13
 
       - name: Install dependencies
         run: |
