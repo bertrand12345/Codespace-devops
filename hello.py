@@ -1,2 +1,2 @@
 def hi():
-    retturn "hi"
+    return "hi"
