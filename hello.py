@@ -4,7 +4,7 @@ import glob
 
 
 # this is bad code intentionally
-varbad=
+#varbad=
 
 @click.command()
 @click.option(
