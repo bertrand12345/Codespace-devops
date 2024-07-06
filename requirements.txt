@@ -3,3 +3,5 @@ pytest
 pylint
 black
 pytest-cov
+Flask==2.0.1
+requests==2.26.0
