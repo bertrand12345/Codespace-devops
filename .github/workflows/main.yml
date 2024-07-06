@@ -1,16 +1,33 @@
-name: Codespace
+name: Python CI Steps Github
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # "ubuntu-lastest" doit être corrigé à "ubuntu-latest"
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
+      - name: Checkout code
+        uses: actions/checkout@v2  # L'indentation doit être correcte pour les étapes
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2  # Utilisation de setup-python@v2 au lieu de v1
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: |
+          make install  # Assurez-vous que votre Makefile a une cible 'install'
+
+      - name: Lint with pylint
+        run: |
+          make lint  # Assurez-vous que votre Makefile a une cible 'lint'
+
+      - name: Test with pytest
+        run: |
+          make test  # Assurez-vous que votre Makefile a une cible 'test'
+
+      - name: Format code
+        run: |
+          make format  # Assurez-vous que votre Makefile a une cible 'format'
+
