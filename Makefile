@@ -1,15 +1,15 @@
-install:	
-	pip install --upgrade pip &&\	
-		pip install -r requirements.txt	
+install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
 
+lint:
+	pylint --disable=R,C hello.py
 
-lint:	
-	pylint --disable=R,C hello.py hello.py		
+format:
+	black *.py
 
-format:	
-	black *.py		
+test:
+	python -m pytest -vv --cov=hello --cov-report=term-missing test_hello.py
 
-test:	
-	python -m pytest -vv --cov=hello --cov=hello test_hello.py	
 
 
